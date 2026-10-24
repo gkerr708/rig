@@ -1,0 +1,46 @@
+# Marshall JCM800 crunch (Guitarix preamp + cab)
+# Classic rock: Tube Screamer as a clean boost into a JCM800, slapback and a little room.
+
+in  = hw_USB_0:capture_AUX1                 # Scarlett Solo, instrument input
+out = Scarlett_Solo*:playback_FL, Scarlett_Solo*:playback_FR
+latency = 64
+
+[gate] gate_mono                        # cuts hiss between notes
+  gt = -55dB                            # threshold: lower if notes get chopped
+  at = 1                                # attack ms
+  rt = 80                               # release ms
+
+[boost] ts9sim                          # Tube Screamer used as a boost
+  fslider2_ = 0.15                      # Drive
+  fslider0_ = -4                        # Level
+  fslider1_ = 600                       # Tone
+
+[amp] gx_jcm800pre                      # JCM800 preamp
+  GAIN = 6
+  Bass = 0.4
+  Middle = 0.65
+  Treble = 0.6
+  P6v = 0.6                             # presence
+  WET_DRY = 100
+
+[cab] gx_cabinet
+  c_model = Marshall Style
+
+[eq] para_equalizer_x8_stereo           # trim boom and fizz
+  ft_0 = Hi-pass
+  f_0 = 80                              # Hz
+  ft_1 = Lo-pass
+  f_1 = 7500                            # Hz
+
+[slap] slap_delay_stereo                # single slapback echo
+  dm0 = Time
+  dt0 = 110                             # ms
+  dg0 = -14dB                           # echo level
+
+[reverb] gx_reverb_stereo
+  dry_wet = 15
+  roomsize = 0.5
+
+[limit] limiter_stereo                  # safety net so a hot amp can't blast your ears
+  th = -1dB                             # ceiling
+  g_out = -3dB                          # overall volume: change this one

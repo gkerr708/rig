@@ -1,0 +1,41 @@
+# Fender Super Reverb clean (TONE3000 capture)
+# Compressed clean with chorus, dotted-eighth delay and a lush reverb.
+
+in  = hw_USB_0:capture_AUX1                 # Scarlett Solo, instrument input
+out = Scarlett_Solo*:playback_FL, Scarlett_Solo*:playback_FR
+latency = 64
+volume = 2dB
+
+[comp] compressor_mono                  # evens out picking
+  al = -22dB                            # threshold
+  cr = 3                                # ratio
+  at = 10
+  rt = 150
+  mk = 3dB                              # makeup gain
+
+[amp] tone3000                          # 1965 Fender Super Reverb
+  preset = fender_clean-amp
+  gateEnabled = On                      # the comp handles dynamics
+  toneTreble = 5
+
+[chorus] chorus_stereo  off
+  rate = 0.6                            # Hz
+  depth = 4                             # ms
+  voices = 2
+  wet = -9dB
+
+[delay] gx_digital_delay_st  off
+  BPM = 100
+  NOTES = Dotted1/8note
+  FEEDBACK = 25
+  LEVEL = 20                            # delay volume
+  MODE = tape
+
+[reverb] gx_zita_rev1_stereo
+  MID_RT60 = 2.5                        # decay s
+  DRY_WET_MIX = -0.4                    # -1 dry … 1 wet
+  level = 3.84
+
+[limit] limiter_stereo                  # safety net so a hot amp can't blast your ears
+  th = -1dB                             # ceiling
+  g_out = -1dB                          # overall volume: change this one

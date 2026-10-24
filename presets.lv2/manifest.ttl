@@ -1,0 +1,47 @@
+@prefix lv2: <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<default-amp.ttl> a pset:Preset ;
+    lv2:appliesTo <https://www.tone3000.com/plugin> ;
+    rdfs:seeAlso <default-amp.ttl> .
+
+<default-delay.ttl> a pset:Preset ;
+    lv2:appliesTo <http://guitarix.sourceforge.net/plugins/gx_digital_delay_st_#_digital_delay_st_> ;
+    rdfs:seeAlso <default-delay.ttl> .
+
+<default-dotted.ttl> a pset:Preset ;
+    lv2:appliesTo <http://guitarix.sourceforge.net/plugins/gx_digital_delay_st_#_digital_delay_st_> ;
+    rdfs:seeAlso <default-dotted.ttl> .
+
+<default-eq.ttl> a pset:Preset ;
+    lv2:appliesTo <http://lsp-plug.in/plugins/lv2/graph_equalizer_x16_stereo> ;
+    rdfs:seeAlso <default-eq.ttl> .
+
+<default-flanger.ttl> a pset:Preset ;
+    lv2:appliesTo <http://lsp-plug.in/plugins/lv2/flanger_stereo> ;
+    rdfs:seeAlso <default-flanger.ttl> .
+
+<default-fuzz.ttl> a pset:Preset ;
+    lv2:appliesTo <http://guitarix.sourceforge.net/plugins/gx_fuzzface_#_fuzzface_> ;
+    rdfs:seeAlso <default-fuzz.ttl> .
+
+<default-phaser.ttl> a pset:Preset ;
+    lv2:appliesTo <http://lsp-plug.in/plugins/lv2/phaser_stereo> ;
+    rdfs:seeAlso <default-phaser.ttl> .
+
+<default-reverb.ttl> a pset:Preset ;
+    lv2:appliesTo <http://guitarix.sourceforge.net/plugins/gx_zita_rev1_stereo#_zita_rev1_stereo> ;
+    rdfs:seeAlso <default-reverb.ttl> .
+
+<fender-super-reverb.ttl> a pset:Preset ;
+    lv2:appliesTo <https://www.tone3000.com/plugin> ;
+    rdfs:seeAlso <fender-super-reverb.ttl> .
+
+<fender_clean-amp.ttl> a pset:Preset ;
+    lv2:appliesTo <https://www.tone3000.com/plugin> ;
+    rdfs:seeAlso <fender_clean-amp.ttl> .
+
+<metal_rythm-amp.ttl> a pset:Preset ;
+    lv2:appliesTo <https://www.tone3000.com/plugin> ;
+    rdfs:seeAlso <metal_rythm-amp.ttl> .

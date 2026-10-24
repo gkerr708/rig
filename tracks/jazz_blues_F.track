@@ -1,0 +1,9 @@
+# 12-bar jazz blues (Bird-style changes): F mixolydian / F blues, then follow the changes:
+# arpeggiate the 3rds and 7ths, Cm7-F7 and Gm7-C7 are ii-Vs
+title = Jazz blues in F
+bpm   = 132
+style = swing
+
+| F7    | Bb7    | F7    | Cm7 F7 |
+| Bb7   | Bdim7  | F7    | Am7 D7 |
+| Gm7   | C7     | F7 D7 | Gm7 C7 |

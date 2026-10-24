@@ -1,0 +1,33 @@
+# Redeye Chump blues
+# Small tube combo pushed a bit, light compression, spring-style reverb.
+
+in  = hw_USB_0:capture_AUX1                 # Scarlett Solo, instrument input
+out = Scarlett_Solo*:playback_FL, Scarlett_Solo*:playback_FR
+latency = 64
+
+[comp] compressor_mono
+  al = -20dB
+  cr = 2.5
+  mk = 2dB
+
+[amp] chump                             # GxRedeye Chump
+  Gain = 0.65
+  Tone = 0.55
+  Volume = 0.5
+
+[cab] gx_cabinet
+  c_model = 1x12
+
+[delay] gxtubedelay                     # warm short echo
+  delay = 280                           # ms
+  feedback = 0.2
+  level = 0.25
+
+[reverb] gx_reverb_stereo
+  dry_wet = 25
+  roomsize = 0.55
+  damp = 0.6
+
+[limit] limiter_stereo                  # safety net so a hot amp can't blast your ears
+  th = -1dB                             # ceiling
+  g_out = -3dB                          # overall volume: change this one

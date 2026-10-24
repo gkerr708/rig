@@ -1,0 +1,34 @@
+# DS-1 punk (Alembic preamp)
+# Boss DS-1 into the Alembic preamp and a 4x12: raw, mid-forward, no effects.
+
+in  = hw_USB_0:capture_AUX1                 # Scarlett Solo, instrument input
+out = Scarlett_Solo*:playback_FL, Scarlett_Solo*:playback_FR
+latency = 64
+
+[gate] gate_mono                        # cuts hiss between notes
+  gt = -50dB                            # threshold: lower if notes get chopped
+  at = 1                                # attack ms
+  rt = 80                               # release ms
+
+[dist] gx_bossds1                       # Boss DS-1
+  DRIVE = 0.7
+  TONE = 0.55
+  LEVEL = -4
+
+[amp] alembic                           # Gx Alembic preamp
+  input = 0.5
+  bass = 0.45
+  middle = 0.7
+  treble = 0.55
+  volume = 0.5
+
+[cab] gx_cabinet
+  c_model = 4x12
+
+[room] gx_reverb_stereo                 # just a touch of room
+  dry_wet = 10
+  roomsize = 0.3
+
+[limit] limiter_stereo                  # safety net so a hot amp can't blast your ears
+  th = -1dB                             # ceiling
+  g_out = -3dB                          # overall volume: change this one

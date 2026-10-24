@@ -1,0 +1,8 @@
+# 12-bar quick-change blues: solo with A minor / major pentatonic
+title = Blues shuffle in A
+bpm   = 92
+style = shuffle
+
+| A7 | D7 | A7 | A7 |
+| D7 | D7 | A7 | A7 |
+| E7 | D7 | A7 | E7 |

@@ -1,0 +1,16 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix lv2: <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+
+<default-fuzz.ttl> a pset:Preset ;
+    lv2:appliesTo <http://guitarix.sourceforge.net/plugins/gx_fuzzface_#_fuzzface_> ;
+    rdfs:label "default-fuzz" ;
+    lv2:port [
+        lv2:symbol "FUZZ" ;
+        pset:value 0.9099999666213989
+    ] , [
+        lv2:symbol "LEVEL" ;
+        pset:value 0.9799999594688416
+    ] .

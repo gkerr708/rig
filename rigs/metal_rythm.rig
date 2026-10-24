@@ -1,0 +1,71 @@
+# metal_rythm: rebuilt from ~/metal_rythm.carxp
+#
+# Every save is applied by the rig TUI.
+# Blocks marked "off" are bypassed (b in the TUI toggles). In Carla their
+# Dry/Wet knob was at 0, so they weren't affecting the sound there either.
+
+in  = hw_USB_0:capture_AUX1                 # Scarlett Solo, instrument input
+out = Scarlett_Solo*:playback_FL, Scarlett_Solo*:playback_FR
+latency = 64                              # buffer in samples: 128 ≈ 2.7 ms, try 64 for less
+
+[amp] tone3000                              # Carla volume was +1.5 dB
+  preset = metal_rythm-amp                   # "fender super reverb" (Amalgam 1965 capture)
+
+[eq] graph_equalizer_x16_lr  off            # Dry/Wet was 0 in Carla, so it was silent there
+  clink = on                                # Left/Right controls link
+  gl_3 = 0.3dB                              # Band gain Left 63
+  gr_3 = 0.3dB                              # Band gain Right 63
+  gl_4 = 0.2dB                              # Band gain Left 100
+  gr_4 = 0.2dB                              # Band gain Right 100
+  gl_5 = 0.2dB                              # Band gain Left 160
+  gr_5 = 0.2dB                              # Band gain Right 160
+  gl_6 = 0dB                                # Band gain Left 250
+  gr_6 = 0dB                                # Band gain Right 250
+  gl_9 = 0dB                                # Band gain Left 1K
+  gl_11 = -0.2dB                            # Band gain Left 2.5K
+  gr_11 = -0.2dB                            # Band gain Right 2.5K
+
+[comp] compressor_stereo                    # Dry/Wet was 0 in Carla, so it was silent there; Carla volume was +0.6 dB
+  al = -20dB                                # Attack threshold
+  at = 15                                   # Attack time
+  rt = 56                                   # Release time
+  kn = 0dB                                  # Knee
+
+[chorus] chorus_stereo                      # Dry/Wet was 0 in Carla, so it was silent there; Carla volume was +1.1 dB
+
+[flanger] flanger_stereo  off               # Dry/Wet was 0 in Carla, so it was silent there
+  type = Cubic                              # LFO type
+  dphase = 180                              # Phase difference between left and right
+  ms = on                                   # Mid/Side mode switch
+  fb_on = on                                # Feedback on
+  fgain = -3dB                              # Feedback gain
+  fdelay = 1                                # Feedback delay
+
+[phaser] phaser_stereo   off                # Dry/Wet was 0 in Carla, so it was silent there
+  tempo = 233                               # Tempo
+  qfactor = 3.5                             # Filter quality (Q factor)
+  lfs = 248.5                               # LFO frequency start
+  lfe = 6334.6                              # LFO frequency end
+  lfp = 180.4                               # Inter-filter phase range
+  lcp = 0                                   # Inter-channel phase
+  wet = -3dB                                # Wet amount
+  g_out = -8dB                              # Output gain
+
+[slapback] slap_delay_stereo                # Dry/Wet was 0 in Carla, so it was silent there; Carla volume was +2.1 dB
+  tempo = 136                               # Tempo
+  dm1 = Notes                               # Delay 2 mode
+  df1 = 0.25                                # Delay 2 fraction
+  dfb1 = -20.1dB                            # Delay 2 feedback
+  dg1 = -16dB                               # Delay 2 gain
+
+[reverb] gx_reverb_stereo                   # Dry/Wet was 0 in Carla, so it was silent there; Carla volume was +2.1 dB
+  dry_wet = 26                              # Dry/Wet
+  roomsize = 0.72                           # Roomsize
+  damp = 0.52                               # Damp
+
+[room] room_builder_stereo
+  dry = -1dB                                # Dry amount
+  wet = 1.5dB                               # Wet amount
+  drywet = 90.32                            # Dry/Wet balance
+  sse_0 = off                               # Source 1 enable
+

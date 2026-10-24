@@ -1,0 +1,248 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix lv2: <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+
+<default-eq.ttl> a pset:Preset ;
+    lv2:appliesTo <http://lsp-plug.in/plugins/lv2/graph_equalizer_x16_stereo> ;
+    rdfs:label "default-eq" ;
+    lv2:port [
+        lv2:symbol "g_in" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "g_out" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "mode" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "slope" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "react" ;
+        pset:value 0.20000000298023224
+    ] , [
+        lv2:symbol "shift" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "zoom" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "ife_l" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "ofe_l" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "rfe_l" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "ife_r" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "ofe_r" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "rfe_r" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "bal" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xs_0" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xm_0" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xe_0" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "g_0" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "xs_1" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xm_1" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xe_1" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "g_1" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "xs_2" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xm_2" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xe_2" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "g_2" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "xs_3" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xm_3" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xe_3" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "g_3" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "xs_4" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xm_4" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xe_4" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "g_4" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "xs_5" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xm_5" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xe_5" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "g_5" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "xs_6" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xm_6" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xe_6" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "g_6" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "xs_7" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xm_7" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xe_7" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "g_7" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "xs_8" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xm_8" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xe_8" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "g_8" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "xs_9" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xm_9" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xe_9" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "g_9" ;
+        pset:value 1.050624966621399
+    ] , [
+        lv2:symbol "xs_10" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xm_10" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xe_10" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "g_10" ;
+        pset:value 0.7811986207962036
+    ] , [
+        lv2:symbol "xs_11" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xm_11" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xe_11" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "g_11" ;
+        pset:value 0.5988514423370361
+    ] , [
+        lv2:symbol "xs_12" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xm_12" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xe_12" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "g_12" ;
+        pset:value 0.6749971508979797
+    ] , [
+        lv2:symbol "xs_13" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xm_13" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xe_13" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "g_13" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "xs_14" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xm_14" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xe_14" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "g_14" ;
+        pset:value 0.9861286282539368
+    ] , [
+        lv2:symbol "xs_15" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xm_15" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "xe_15" ;
+        pset:value 1.0
+    ] , [
+        lv2:symbol "g_15" ;
+        pset:value 0.993914008140564
+    ] ;
+    state:state [
+        <http://lsp-plug.in/plugins/lv2/graph_equalizer_x16_stereo/ports#send> "" ;
+        <http://lsp-plug.in/plugins/lv2/graph_equalizer_x16_stereo/ports#return> ""
+    ] .

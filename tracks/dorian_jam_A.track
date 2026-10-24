@@ -1,0 +1,6 @@
+# two-chord vamp: A dorian (A minor with an F#)
+title = Dorian jam in A
+bpm   = 100
+style = rock
+
+| Am7 | D9 |

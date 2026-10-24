@@ -1,0 +1,84 @@
+# Default pedalboard
+# A full board in front of a clean Fender (TONE3000 capture), laid out like real
+# pedals: compressor, distortion, amp, modulation, two delays, reverb. Most pedals
+# start off (all but comp, amp and reverb); select one and press b to stomp it on.
+
+in  = hw_USB_0:capture_AUX1                 # Scarlett Solo, instrument input
+out = Scarlett_Solo*:playback_FL, Scarlett_Solo*:playback_FR
+latency = 64
+volume = 2dB
+
+# ── front of the board ───────────────────────────────────────────────
+
+[comp] compressor_mono                      # evens out picking
+  al = -22dB                                # threshold
+  cr = 3                                    # ratio
+  at = 10
+  rt = 150
+  mk = 3dB                                  # makeup gain
+
+# ── drive ────────────────────────────────────────────────────────────
+
+[dist] gx_bossds1  off                      # Boss DS-1
+  DRIVE = 0.6
+  TONE = 0.5
+  LEVEL = -6
+
+# ── amp ──────────────────────────────────────────────────────────────
+
+[amp] tone3000                              # 1965 Fender Super Reverb, cab included
+  preset = default-amp
+
+[eq] graph_equalizer_x16_stereo            # LSP 16-band graphic EQ, starts flat
+  preset = default-eq
+
+# ── modulation ───────────────────────────────────────────────────────
+
+[trem] gx_tremolo  off
+  mode = sine
+  freq = 5                                  # Hz
+  depth = 0.5
+  dry_wet = 100
+
+[chorus] chorus_stereo  off
+  rate = 0.6                                # Hz
+  depth = 4                                 # ms
+  wet = -9dB
+
+[phaser] phaser_stereo  off
+  rate = 0.4                                # Hz
+  filters = 4
+  wet = -6dB
+  preset = default-phaser
+
+[flanger] flanger_stereo  off
+  rate = 0.2                                # Hz
+  depth = 3                                 # ms
+  fb_on = on
+  wet = -6dB
+  preset = default-flanger
+
+# ── delays: keep both BPM values the same ────────────────────────────
+
+[dotted] gx_digital_delay_st  off           # dotted eighths, the rhythmic "Edge" echo
+  BPM = 100                                 # song tempo
+  NOTES = 1/8note
+  FEEDBACK = 60                             # repeats
+  LEVEL = 55                                # echo volume
+  MODE = plain                              # clean, exact repeats
+  preset = default-dotted
+
+[delay] gx_digital_delay_st  off            # normal quarter-note echo
+  BPM = 120                                 # song tempo
+  NOTES = 1/8note
+  FEEDBACK = 35
+  LEVEL = 10
+  MODE = tape                               # darker repeats that sit behind the playing
+  preset = default-delay
+
+# ── end of the board ─────────────────────────────────────────────────
+
+[reverb] gx_zita_rev1_stereo
+  MID_RT60 = 2.2                            # decay s
+  DRY_WET_MIX = -0.5                        # -1 dry … 1 wet
+  preset = default-reverb

@@ -1,0 +1,37 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix lv2: <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+
+<default-dotted.ttl> a pset:Preset ;
+    lv2:appliesTo <http://guitarix.sourceforge.net/plugins/gx_digital_delay_st_#_digital_delay_st_> ;
+    rdfs:label "default-dotted" ;
+    lv2:port [
+        lv2:symbol "BPM" ;
+        pset:value 125.0
+    ] , [
+        lv2:symbol "FEEDBACK" ;
+        pset:value 60.0
+    ] , [
+        lv2:symbol "GAIN" ;
+        pset:value 100.0
+    ] , [
+        lv2:symbol "HIGHPASS" ;
+        pset:value 120.0
+    ] , [
+        lv2:symbol "HOWPASS" ;
+        pset:value 12000.0
+    ] , [
+        lv2:symbol "LEVEL" ;
+        pset:value 55.0
+    ] , [
+        lv2:symbol "MODE" ;
+        pset:value 0.0
+    ] , [
+        lv2:symbol "NOTES" ;
+        pset:value 7.0
+    ] , [
+        lv2:symbol "SYNC" ;
+        pset:value 0.0
+    ] .

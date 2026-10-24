@@ -1,0 +1,6 @@
+# one-chord funk: E dorian, E minor pentatonic, 9th-chord shapes
+title = Funk vamp in E9
+bpm   = 96
+style = funk
+
+| E9 | E9 | E9 | A9 |

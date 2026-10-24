@@ -1,0 +1,32 @@
+# Big Chump + Fuzz Face
+# 60s fuzz into a small amp, with a slow phaser.
+
+in  = hw_USB_0:capture_AUX1                 # Scarlett Solo, instrument input
+out = Scarlett_Solo*:playback_FL, Scarlett_Solo*:playback_FR
+latency = 64
+
+[fuzz] gx_fuzzface                      # Fuzz Face
+  FUZZ = 0.7
+  LEVEL = 0.4
+
+[amp] bigchump                          # GxRedeye Big Chump
+  Gain = 0.45
+  Tone = 0.5
+  Volume = 0.35
+
+[cab] gx_cabinet
+  c_model = 2x12
+
+[phaser] phaser_stereo
+  rate = 0.3                            # Hz
+  filters = 3
+  dry = 0dB
+  wet = -6dB
+
+[reverb] gx_zita_rev1_stereo
+  MID_RT60 = 2
+  DRY_WET_MIX = -0.5
+
+[limit] limiter_stereo                  # safety net so a hot amp can't blast your ears
+  th = -1dB                             # ceiling
+  g_out = -3dB                          # overall volume: change this one

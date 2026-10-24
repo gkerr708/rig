@@ -1,0 +1,31 @@
+# Vibro Chump surf
+# Amp vibrato on, drenched reverb and a tube slapback.
+
+in  = hw_USB_0:capture_AUX1                 # Scarlett Solo, instrument input
+out = Scarlett_Solo*:playback_FL, Scarlett_Solo*:playback_FR
+latency = 64
+
+[amp] vibrochump                        # GxRedeye Vibro Chump
+  Gain = 0.4
+  Tone = 0.6
+  Volume = 0.4
+  Vibe = on
+  Speed = 5.5
+  Intensity = 5
+
+[cab] gx_cabinet
+  c_model = Twin Style
+
+[slap] gxtubedelay
+  delay = 120                           # ms
+  feedback = 0.15
+  level = 0.35
+
+[reverb] gx_reverb_stereo               # surf = lots of reverb
+  dry_wet = 45
+  roomsize = 0.8
+  damp = 0.3
+
+[limit] limiter_stereo                  # safety net so a hot amp can't blast your ears
+  th = -1dB                             # ceiling
+  g_out = -3dB                          # overall volume: change this one

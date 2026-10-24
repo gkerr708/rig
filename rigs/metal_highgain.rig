@@ -1,0 +1,47 @@
+# Modern metal rhythm (GxMetalAmp)
+# Tight gate and Tube Screamer push, scooped-mud EQ, almost dry.
+
+in  = hw_USB_0:capture_AUX1                 # Scarlett Solo, instrument input
+out = Scarlett_Solo*:playback_FL, Scarlett_Solo*:playback_FR
+latency = 64
+
+[gate] gate_mono                        # cuts hiss between notes
+  gt = -45dB                            # threshold: lower if notes get chopped
+  at = 1                                # attack ms
+  rt = 80                               # release ms
+
+[tight] ts9sim                          # Tube Screamer: no drive, level up = tighter lows
+  fslider2_ = 0                         # Drive
+  fslider0_ = 2                         # Level
+  fslider1_ = 700                       # Tone
+
+[amp] gxmetal_amp
+  HIGHGAIN = on
+  DRIVE = 14
+  TONE = 0.6
+
+[cab] gx_cabinet
+  c_model = HighGain Style
+
+[eq] para_equalizer_x8_stereo
+  ft_0 = Hi-pass
+  f_0 = 90                              # Hz
+  s_0 = x2                              # steeper
+  ft_1 = Bell                           # mud cut
+  f_1 = 400                             # Hz
+  g_1 = -4dB
+  w_1 = 1                               # oct
+  ft_2 = Bell                           # bite
+  f_2 = 2500                            # Hz
+  g_2 = 2dB
+  w_2 = 1.5                             # oct
+  ft_3 = Lo-pass
+  f_3 = 8000                            # Hz
+
+[reverb] gx_zita_rev1_stereo
+  MID_RT60 = 1.5
+  DRY_WET_MIX = -0.8                    # mostly dry
+
+[limit] limiter_stereo                  # safety net so a hot amp can't blast your ears
+  th = -1dB                             # ceiling
+  g_out = -3dB                          # overall volume: change this one

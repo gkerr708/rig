@@ -1,0 +1,77 @@
+# GxAmplifier-X, Mesa-style
+# Guitarix's main tube amp with a Mesa tonestack and its built-in 4x12; flanger on standby.
+
+in  = hw_USB_0:capture_AUX1                 # Scarlett Solo, instrument input
+out = Scarlett_Solo*:playback_FL, Scarlett_Solo*:playback_FR
+latency = 64
+
+[gate] gate_mono                        # cuts hiss between notes
+  gt = -50dB                            # threshold: lower if notes get chopped
+  at = 1                                # attack ms
+  rt = 80                               # release ms
+  showpmx = off   # Show pre-mix overlay (on/off)
+  in2lk = -inf   # Input to Link mix (-inf … 20 dB)
+  lk2in = -inf   # Link to Input mix (-inf … 20 dB)
+  lk2sc = -inf   # Link to Sidechain mix (-inf … 20 dB)
+  g_in = 0dB   # Input gain (-inf … 60 dB)
+  g_out = 0dB   # Output gain (-inf … 60 dB)
+  showmx = off   # Show mix overlay (on/off)
+  showsc = off   # Show sidechain overlay (on/off)
+  pause = off   # Pause graph analysis (on/off)
+  clear = off   # Clear graph analysis (on/off)
+  sci = Internal   # Sidechain input (Internal | Link)
+  scm = RMS   # Sidechain mode (Peak | RMS | LPF | SMA)
+  sla = 0   # Sidechain lookahead (0 … 20 ms)
+  scl = off   # Sidechain listen (on/off)
+  scr = 10   # Sidechain reactivity (0 … 250 ms)
+  scp = 0dB   # Sidechain preamp (-inf … 40 dB)
+  shpm = off   # High-pass filter mode (off | 12 dB/oct | 24 dB/oct | 36 dB/oct)
+  shpf = 10   # High-pass filter frequency (10 … 20000 Hz)
+  slpm = off   # Low-pass filter mode (off | 12 dB/oct | 24 dB/oct | 36 dB/oct)
+  slpf = 20000   # Low-pass filter frequency (10 … 20000 Hz)
+  gh = off   # Hysteresis (on/off)
+  gz = -6dB   # Curve zone size (-60 … 0 dB)
+  ht = -12dB   # Hysteresis threshold (-95.92 … 0 dB)
+  hz = -6dB   # Hysteresis zone size (-60 … 0 dB)
+  hold = 0   # Hold time (0 … 1000 ms)
+  gr = -24dB   # Reduction (-72.01 … 72 dB)
+  mk = 0dB   # Makeup gain (-60 … 60 dB)
+  cdr = -inf   # Dry gain (-inf … 20 dB)
+  cwt = 0dB   # Wet gain (-inf … 20 dB)
+  cdw = 100   # Dry/Wet balance (0 … 100 %)
+  slv = on   # Sidechain level visibility (on/off)
+  elv = on   # Envelope level visibility (on/off)
+  grv = on   # Gain reduction visibility (on/off)
+  ilv = on   # Input level visibility (on/off)
+  olv = on   # Output level visibility (on/off)
+
+[amp] gx_amp                            # GxAmplifier-X
+  model = 12ax7                         # preamp tube
+  t_model = Mesa Boogie Style           # tonestack
+  c_model = 4x12                        # built-in cab
+  HIGHGAIN = on
+  Distortion = 60
+  Drive = 0.5
+  PreGain = 3
+  MasterGain = -3
+  Presence = 6
+
+[flanger] flanger_stereo  off           # switch on for effect
+  rate = 0.2                            # Hz
+  depth = 3                             # ms
+  fb_on = on
+  wet = -6dB
+
+[delay] gx_digital_delay_st
+  BPM = 110
+  NOTES = Dotted1/8note
+  FEEDBACK = 30
+  LEVEL = 18
+
+[reverb] gx_reverb_stereo
+  dry_wet = 20
+  roomsize = 0.6
+
+[limit] limiter_stereo                  # safety net so a hot amp can't blast your ears
+  th = -1dB                             # ceiling
+  g_out = -3dB                          # overall volume: change this one

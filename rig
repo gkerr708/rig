@@ -1,0 +1,4 @@
+#!/bin/sh
+# Launch the rig TUI: rig [name-or-path.rig]
+here="$(dirname "$(readlink -f "$0")")"
+PYTHONPATH="$here" exec "$here/.venv/bin/python" -m rig_app "$@"

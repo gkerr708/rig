@@ -1,0 +1,45 @@
+# Studio preamp clean
+# Hi-fi clean: preamp, Twin cab, chorus, ping-pong delay, plate-ish reverb; tremolo on standby.
+
+in  = hw_USB_0:capture_AUX1                 # Scarlett Solo, instrument input
+out = Scarlett_Solo*:playback_FL, Scarlett_Solo*:playback_FR
+latency = 64
+
+[comp] compressor_mono
+  al = -22dB
+  cr = 3
+  mk = 3dB
+
+[amp] studiopre                         # Gx Studio Preamp
+  bright = on
+  volume = 0.5
+  bass = 0.45
+  middle = 0.5
+  treble = 0.6
+
+[cab] gx_cabinet
+  c_model = Twin Style
+
+[trem] gx_tremolo  off                  # switch on for tremolo
+  freq = 5                              # Hz
+  depth = 0.5
+
+[chorus] chorus_stereo
+  rate = 0.4
+  depth = 5
+  wet = -8dB
+
+[delay] gx_delay_stereo                 # ping-pong
+  mode = pingpong
+  timt_l = 375                          # ms
+  timt_r = 375                          # ms
+  level_l = -14
+  level_r = -14
+
+[reverb] gx_zita_rev1_stereo
+  MID_RT60 = 2.2
+  DRY_WET_MIX = -0.45
+
+[limit] limiter_stereo                  # safety net so a hot amp can't blast your ears
+  th = -1dB                             # ceiling
+  g_out = -3dB                          # overall volume: change this one
