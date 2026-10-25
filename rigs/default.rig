@@ -6,7 +6,7 @@
 in  = hw_USB_0:capture_AUX1                 # Scarlett Solo, instrument input
 out = Scarlett_Solo*:playback_FL, Scarlett_Solo*:playback_FR
 latency = 64
-volume = 2dB
+volume = 0dB
 
 # ── front of the board ───────────────────────────────────────────────
 
@@ -29,7 +29,7 @@ volume = 2dB
 [amp] tone3000                              # 1965 Fender Super Reverb, cab included
   preset = default-amp
 
-[eq] graph_equalizer_x16_stereo            # LSP 16-band graphic EQ, starts flat
+[eq] graph_equalizer_x16_stereo  off       # LSP 16-band graphic EQ, starts flat
   preset = default-eq
 
 # ── modulation ───────────────────────────────────────────────────────
@@ -78,7 +78,7 @@ volume = 2dB
 
 # ── end of the board ─────────────────────────────────────────────────
 
-[reverb] gx_zita_rev1_stereo
+[reverb] gx_zita_rev1_stereo  off
   MID_RT60 = 2.2                            # decay s
   DRY_WET_MIX = -0.5                        # -1 dry … 1 wet
   preset = default-reverb
